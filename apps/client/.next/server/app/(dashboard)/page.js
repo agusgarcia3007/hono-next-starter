@@ -1,0 +1,15 @@
+const CHUNK_PUBLIC_PATH = "server/app/(dashboard)/page.js";
+const runtime = require("../../chunks/ssr/[turbopack]_runtime.js");
+runtime.loadChunk("server/chunks/ssr/08b5e_next_dist_97f32f._.js");
+runtime.loadChunk("server/chunks/ssr/[root of the server]__6bbb65._.js");
+runtime.loadChunk("server/chunks/ssr/src_app_8f3354._.js");
+runtime.loadChunk("server/chunks/ssr/[root of the server]__209531._.js");
+runtime.loadChunk("server/chunks/ssr/[root of the server]__d3079b._.css");
+runtime.loadChunk("server/chunks/ssr/08b5e_ce97a5._.js");
+runtime.loadChunk("server/chunks/ssr/08b5e_next_dist_client_components_forbidden-error_b4e556.js");
+runtime.loadChunk("server/chunks/ssr/08b5e_next_dist_client_components_unauthorized-error_d758e6.js");
+runtime.loadChunk("server/chunks/ssr/src_b63c6b._.js");
+runtime.loadChunk("server/chunks/ssr/08b5e_44b563._.js");
+runtime.loadChunk("server/chunks/ssr/[root of the server]__f9a59a._.js");
+runtime.getOrInstantiateRuntimeModule("[project]/packages/client/.next-internal/server/app/(dashboard)/page/actions.js [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH);
+module.exports = runtime.getOrInstantiateRuntimeModule("[project]/node_modules/next/dist/esm/build/templates/app-page.js?page=/(dashboard)/page { METADATA_0 => \"[project]/packages/client/src/app/favicon.ico.mjs { IMAGE => \\\"[project]/packages/client/src/app/favicon.ico [app-rsc] (static)\\\" } [app-rsc] (structured image object, ecmascript, Next.js server component)\", MODULE_1 => \"[project]/packages/client/src/app/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_2 => \"[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_3 => \"[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_4 => \"[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_5 => \"[project]/packages/client/src/app/(dashboard)/layout.tsx [app-rsc] (ecmascript, Next.js server component)\", MODULE_6 => \"[project]/node_modules/next/dist/client/components/not-found-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_7 => \"[project]/node_modules/next/dist/client/components/forbidden-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_8 => \"[project]/node_modules/next/dist/client/components/unauthorized-error.js [app-rsc] (ecmascript, Next.js server component)\", MODULE_9 => \"[project]/packages/client/src/app/(dashboard)/page.tsx [app-rsc] (ecmascript, Next.js server component)\" } [app-rsc] (ecmascript)", CHUNK_PUBLIC_PATH).exports;
