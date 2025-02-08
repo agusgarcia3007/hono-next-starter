@@ -1,0 +1,30 @@
+{
+  "name": "server",
+  "scripts": {
+    "dev": "bun run --hot src/index.ts",
+    "start": "bun run src/index.ts",
+    "build": "tsc --noEmit",
+    "check-types": "tsc --noEmit",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:seed": "bun run src/db/seed.ts",
+    "db:reset": "bun run src/db/reset.ts",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@hono/swagger-ui": "^0.5.0",
+    "@hono/zod-validator": "^0.4.2",
+    "@neondatabase/serverless": "^0.10.4",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.39.2",
+    "drizzle-seed": "^0.3.1",
+    "hono": "^4.6.20",
+    "zod": "^3.24.1",
+    "zod-to-openapi": "^0.2.1"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "drizzle-kit": "^0.30.4"
+  }
+}

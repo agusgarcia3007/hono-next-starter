@@ -1,0 +1,53 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [".env"],
+  "globalEnv": ["NODE_ENV"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["check-types"],
+      "outputs": ["dist/**"]
+    },
+    "client#build": {
+      "dependsOn": ["check-types"],
+      "env": ["NEXT_PUBLIC_API_URL"],
+      "outputs": [".next/**", "!.next/cache/**"]
+    },
+    "server#build": {
+      "dependsOn": ["check-types"],
+      "env": [
+        "DATABASE_URL",
+        "JWT_SECRET",
+        "PORT"
+      ],
+      "outputs": ["dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^db:generate"]
+    },
+    "start": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["build"]
+    },
+    "deploy": {
+      "dependsOn": ["build", "lint"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "check-types": {
+      "outputs": [],
+      "cache": true
+    },
+    "test": {
+      "dependsOn": ["build"],
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+    },
+    "db:generate": {
+      "cache": false
+    }
+  }
+}

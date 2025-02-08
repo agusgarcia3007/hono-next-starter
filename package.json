@@ -2,10 +2,24 @@
   "name": "hono-next",
   "version": "1.0.0",
   "description": "A full-stack template featuring a Hono-powered REST API backend and a modern Next.js frontend.",
+  "private": true,
   "scripts": {
-    "dev": "(cd server && bun dev) & (cd client && bun dev)"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "start": "turbo start",
+    "deploy": "turbo deploy",
+    "lint": "turbo lint",
+    "test": "turbo test",
+    "check-types": "turbo check-types"
   },
   "keywords": [],
   "author": "agusgarca3007",
-  "license": "ISC"
+  "license": "ISC",
+  "packageManager": "bun@1.1.29",
+  "devDependencies": {
+    "turbo": "^2.4.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
