@@ -1,0 +1,11 @@
+{
+  "name": "hono-next",
+  "version": "1.0.0",
+  "description": "A full-stack template featuring a Hono-powered REST API backend and a modern Next.js frontend.",
+  "scripts": {
+    "dev": "(cd server && bun dev) & (cd client && bun dev)"
+  },
+  "keywords": [],
+  "author": "agusgarca3007",
+  "license": "ISC"
+}
