@@ -1,0 +1,126 @@
+# Getting Started
+
+This guide will help you get started with the Hono Next template. We'll cover installation, setup, and basic usage.
+
+## Prerequisites
+
+Before you begin, make sure you have the following installed:
+
+- Node.js 18 or higher
+- pnpm 8 or higher
+- Git
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/agustinl/hono-next.git
+cd hono-next
+```
+
+2. Install dependencies:
+
+```bash
+pnpm install
+```
+
+3. Set up environment variables:
+
+```bash
+# Copy environment variables for the server
+cp apps/server/.env.example apps/server/.env
+
+# Copy environment variables for the client
+cp apps/client/.env.example apps/client/.env
+```
+
+## Project Structure
+
+The project is organized as a monorepo using Turborepo:
+
+```
+/
+├── apps/
+│   ├── client/         # Next.js frontend
+│   │   ├── src/
+│   │   │   ├── app/    # App router pages
+│   │   │   ├── components/
+│   │   │   └── lib/    # Utilities
+│   │   └── public/
+│   └── server/         # Hono backend
+│       ├── src/
+│       │   ├── db/     # Database
+│       │   ├── routes/ # API routes
+│       │   └── types/  # TypeScript types
+│       └── .env
+├── packages/           # Shared packages
+│   ├── eslint-config/
+│   └── tsconfig/
+└── turbo.json
+```
+
+## Development Workflow
+
+1. Start the development servers:
+
+```bash
+pnpm dev
+```
+
+This will start:
+- Frontend at http://localhost:3000
+- Backend at http://localhost:8888
+
+2. Run specific apps:
+
+```bash
+# Frontend only
+pnpm dev --filter=client
+
+# Backend only
+pnpm dev --filter=server
+```
+
+3. Build the project:
+
+```bash
+# Build all apps
+pnpm build
+
+# Build specific app
+pnpm build --filter=client
+```
+
+## Features
+
+### Backend (Hono)
+
+- **Fast**: Ultrafast web framework for the Edges
+- **Type-safe**: Built with TypeScript
+- **Modern**: Uses modern JavaScript features
+- **Flexible**: Works with any database
+- **Secure**: JWT authentication built-in
+
+### Frontend (Next.js)
+
+- **App Router**: Modern routing system
+- **Server Components**: Better performance
+- **shadcn/ui**: Beautiful UI components
+- **Tailwind CSS**: Utility-first CSS
+- **TypeScript**: Full type safety
+
+### Development Tools
+
+- **Turborepo**: Optimized build system
+- **ESLint**: Code linting
+- **Prettier**: Code formatting
+- **Husky**: Git hooks
+- **TypeScript**: Type checking
+
+## Next Steps
+
+- [Explore the documentation](/docs)
+- [View components](/docs/components)
+- [Check out examples](/docs/examples)
+- [Contribute to the project](https://github.com/agustinl/hono-next)

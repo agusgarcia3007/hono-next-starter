@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Hono Next - Modern Full-Stack Template">
+  <section class="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32 container">
+    <div class="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
+      <h1 class="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+        A modern full-stack monorepo template
+      </h1>
+      <p class="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+        Built with Hono, Next.js, and Turborepo. Featuring modern development tools and best practices.
+      </p>
+      <div class="space-x-4">
+        <a
+          href="/docs/getting-started/"
+          class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          Get Started
+        </a>
+        <a
+          href="https://github.com/agustinl/hono-next"
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container space-y-6 py-8 md:py-12 lg:py-24">
+    <div class="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+      <h2 class="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl">Features</h2>
+      <p class="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+        This template includes everything you need to build a modern full-stack application
+      </p>
+    </div>
+    <div class="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
+      <div class="relative overflow-hidden rounded-lg border bg-background p-2">
+        <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+          <div class="space-y-2">
+            <h3 class="font-bold">Hono Backend</h3>
+            <p class="text-sm text-muted-foreground">
+              Ultrafast web framework for the Edges
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-lg border bg-background p-2">
+        <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+          <div class="space-y-2">
+            <h3 class="font-bold">Next.js Frontend</h3>
+            <p class="text-sm text-muted-foreground">
+              React framework with modern features like App Router
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-lg border bg-background p-2">
+        <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+          <div class="space-y-2">
+            <h3 class="font-bold">Turborepo</h3>
+            <p class="text-sm text-muted-foreground">
+              High-performance build system for JavaScript/TypeScript monorepos
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-lg border bg-background p-2">
+        <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+          <div class="space-y-2">
+            <h3 class="font-bold">shadcn/ui</h3>
+            <p class="text-sm text-muted-foreground">
+              Beautifully designed components built with Radix UI and Tailwind
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-lg border bg-background p-2">
+        <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+          <div class="space-y-2">
+            <h3 class="font-bold">TypeScript</h3>
+            <p class="text-sm text-muted-foreground">
+              Type safety across the entire stack
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="relative overflow-hidden rounded-lg border bg-background p-2">
+        <div class="flex h-[180px] flex-col justify-between rounded-md p-6">
+          <div class="space-y-2">
+            <h3 class="font-bold">Authentication</h3>
+            <p class="text-sm text-muted-foreground">
+              JWT-based authentication with secure session management
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

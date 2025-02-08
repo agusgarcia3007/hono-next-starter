@@ -1,0 +1,221 @@
+# Components
+
+This template uses [shadcn/ui](https://ui.shadcn.com/) for its component library. These components are built on top of [Radix UI](https://www.radix-ui.com/) and styled with [Tailwind CSS](https://tailwindcss.com/).
+
+## Component Architecture
+
+Our components follow these principles:
+
+1. **Composable**: Components are designed to work together
+2. **Accessible**: Built with accessibility in mind
+3. **Customizable**: Easy to modify with Tailwind CSS
+4. **Type-safe**: Full TypeScript support
+
+## Available Components
+
+### Layout Components
+
+These components help structure your application:
+
+```tsx
+// apps/client/src/components/layout/shell.tsx
+export function Shell({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="relative flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
+  )
+}
+```
+
+### Form Components
+
+Type-safe form components with validation:
+
+```tsx
+// apps/client/src/components/forms/login-form.tsx
+export function LoginForm() {
+  const form = useForm<LoginFormValues>({
+    resolver: zodResolver(loginFormSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  })
+
+  return (
+    <Form {...form}>
+      <FormField
+        control={form.control}
+        name="email"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Email</FormLabel>
+            <FormControl>
+              <Input placeholder="email@example.com" {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      {/* More fields... */}
+    </Form>
+  )
+}
+```
+
+### UI Components
+
+Core UI components from shadcn/ui:
+
+- Button
+- Input
+- Select
+- Checkbox
+- Radio
+- Switch
+- Slider
+- Card
+- Dialog
+- Dropdown Menu
+- Tabs
+- Toast
+- Tooltip
+
+## Styling
+
+Components use Tailwind CSS for styling:
+
+```tsx
+// Example of customizing a button
+<Button
+  className="bg-primary hover:bg-primary/90"
+  size="lg"
+  variant="default"
+>
+  Click me
+</Button>
+```
+
+### Theme Configuration
+
+Colors and other design tokens are configured in:
+
+```ts
+// apps/client/src/lib/theme.ts
+export const theme = {
+  colors: {
+    primary: {
+      DEFAULT: "hsl(var(--primary))",
+      foreground: "hsl(var(--primary-foreground))",
+    },
+    // More colors...
+  },
+  // More theme settings...
+}
+```
+
+## Best Practices
+
+1. **Component Organization**
+   - One component per file
+   - Group related components
+   - Use index files for exports
+
+2. **Props Interface**
+   - Define prop types
+   - Use discriminated unions
+   - Document props
+
+3. **State Management**
+   - Use React Query for server state
+   - Context for shared state
+   - Local state when possible
+
+4. **Performance**
+   - Memoize when needed
+   - Lazy load components
+   - Use Server Components
+
+## Examples
+
+### Authentication Form
+
+```tsx
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
+export function AuthForm() {
+  return (
+    <div className="grid gap-6">
+      <form>
+        <div className="grid gap-2">
+          <div className="grid gap-1">
+            <Label htmlFor="email">
+              Email
+            </Label>
+            <Input
+              id="email"
+              placeholder="name@example.com"
+              type="email"
+              autoCapitalize="none"
+              autoComplete="email"
+              autoCorrect="off"
+            />
+          </div>
+          <Button>
+            Sign In with Email
+          </Button>
+        </div>
+      </form>
+    </div>
+  )
+}
+```
+
+### Data Table
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table"
+
+export function DataTable({ data }) {
+  return (
+    <Table>
+      <TableHeader>
+        <TableRow>
+          <TableHead>Name</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Date</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {data.map((item) => (
+          <TableRow key={item.id}>
+            <TableCell>{item.name}</TableCell>
+            <TableCell>{item.status}</TableCell>
+            <TableCell>{item.date}</TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  )
+}
+```
+
+## Contributing
+
+1. Follow the component guidelines
+2. Add tests for new components
+3. Document your components
+4. Update the type definitions
+5. Create a pull request

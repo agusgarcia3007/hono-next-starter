@@ -1,0 +1,124 @@
+# Documentation
+
+Welcome to the Hono Next documentation! This template provides a modern, full-stack development environment using Hono, Next.js, and Turborepo.
+
+## Overview
+
+The template is designed with these goals in mind:
+
+1. **Modern Development**: Latest tools and best practices
+2. **Type Safety**: End-to-end TypeScript
+3. **Performance**: Optimized for production
+4. **Developer Experience**: Great DX out of the box
+
+## Tech Stack
+
+### Backend
+
+- [Hono](https://hono.dev/): Ultrafast web framework
+- [Drizzle ORM](https://orm.drizzle.team/): TypeScript ORM
+- [PostgreSQL](https://www.postgresql.org/): Database
+- [Zod](https://zod.dev/): Schema validation
+
+### Frontend
+
+- [Next.js 14](https://nextjs.org/): React framework
+- [React Query](https://tanstack.com/query/): Data fetching
+- [shadcn/ui](https://ui.shadcn.com/): UI components
+- [Tailwind CSS](https://tailwindcss.com/): Styling
+
+### Development
+
+- [Turborepo](https://turbo.build/): Monorepo tooling
+- [TypeScript](https://www.typescriptlang.org/): Type safety
+- [ESLint](https://eslint.org/): Linting
+- [Prettier](https://prettier.io/): Formatting
+
+## Key Features
+
+### Monorepo Structure
+
+```
+/
+├── apps/
+│   ├── client/     # Next.js frontend
+│   └── server/     # Hono backend
+└── packages/       # Shared code
+```
+
+### Type Safety
+
+```typescript
+// Shared types between frontend and backend
+interface User {
+  id: string
+  email: string
+  name: string
+}
+
+// API route with type safety
+app.post('/users', async (c) => {
+  const user = await createUser(c.req.json<User>())
+  return c.json(user)
+})
+
+// Frontend with type safety
+const { data } = useQuery<User[]>('/api/users')
+```
+
+### Authentication
+
+- JWT-based auth
+- Protected routes
+- Role-based access
+- Secure sessions
+
+### Modern UI
+
+- Server Components
+- Streaming SSR
+- Optimized images
+- Dark mode
+
+## Getting Started
+
+1. [Installation guide](/docs/getting-started)
+2. [Component library](/docs/components)
+3. [API documentation](/docs/api)
+4. [Deployment guide](/docs/deployment)
+
+## Examples
+
+Check out these examples:
+
+1. **Authentication**
+   - Login/Register forms
+   - Protected routes
+   - Session management
+
+2. **Data Management**
+   - CRUD operations
+   - Real-time updates
+   - File uploads
+
+3. **UI Patterns**
+   - Layouts
+   - Navigation
+   - Forms
+   - Tables
+
+## Contributing
+
+We welcome contributions! Please see our [contributing guide](https://github.com/agustinl/hono-next/blob/main/CONTRIBUTING.md) for details.
+
+## Support
+
+Need help? Here are some resources:
+
+- [GitHub Issues](https://github.com/agustinl/hono-next/issues)
+- [Discord Community](https://discord.gg/hono-next)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/hono-next)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/agustinl/hono-next/blob/main/LICENSE) file for details.

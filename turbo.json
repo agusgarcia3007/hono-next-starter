@@ -21,6 +21,10 @@
       ],
       "outputs": ["dist/**"]
     },
+    "web#build": {
+      "dependsOn": ["check-types"],
+      "outputs": ["dist/**"]
+    },
     "dev": {
       "cache": false,
       "persistent": true,

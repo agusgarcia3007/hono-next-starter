@@ -1,113 +1,109 @@
 # Hono + Next.js Template
 
-A full-stack template featuring a Hono-powered REST API backend and a modern Next.js frontend.
+A modern full-stack monorepo template featuring a Hono-powered REST API backend and a Next.js frontend, powered by Turborepo.
 
 ## Tech Stack
 
-### Backend
+### Backend (Hono)
+
 - [Hono](https://hono.dev/) - Lightweight, ultrafast web framework
 - [Drizzle ORM](https://orm.drizzle.team/) - TypeScript ORM
 - [PostgreSQL](https://www.postgresql.org/) - Database
 - [Zod](https://zod.dev/) - TypeScript-first schema validation
 - [JWT](https://jwt.io/) - JSON Web Token authentication
 
-### Frontend
+### Frontend (Next.js)
+
 - [Next.js 15](https://nextjs.org/) - React framework with App Router
 - [React Query](https://tanstack.com/query/latest) - Data fetching and caching
-- [shadcn/ui](https://ui.shadcn.com/) - Re-usable UI components
-- [Tailwind CSS v4](https://tailwindcss.com/) - Utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - Re-usable UI components built with Radix UI
+- [Tailwind CSS v4](https://tailwindcss.com/) - Next generation utility-first CSS
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
+
+### Development Tools
+
+- [Turborepo](https://turbo.build/) - High-performance build system
+- [pnpm](https://pnpm.io/) - Fast, disk space efficient package manager
+- [ESLint](https://eslint.org/) - Code linting
+- [Prettier](https://prettier.io/) - Code formatting
 
 ## Project Structure
 
 ```
 /
-├── server/              # Hono backend
-│   ├── src/
-│   │   ├── db/         # Database configuration and schema
-│   │   ├── middleware/ # Auth middleware
-│   │   ├── routes/     # API routes
-│   │   ├── schemas/    # Zod validation schemas
-│   │   └── types/      # TypeScript types
-│   └── .env            # Environment variables
-└── client/             # Next.js frontend (to be implemented)
+├── apps/                # Application packages
+│   ├── client/         # Next.js frontend
+│   │   ├── src/
+│   │   │   ├── app/    # App router pages
+│   │   │   ├── components/
+│   │   │   └── lib/    # Utilities and configurations
+│   │   └── public/     # Static assets
+│   └── server/         # Hono backend
+│       ├── src/
+│       │   ├── db/     # Database configuration
+│       │   ├── routes/ # API routes
+│       │   └── types/  # TypeScript types
+│       └── .env        # Environment variables
+├── packages/           # Shared packages
+│   ├── eslint-config/ # ESLint configurations
+│   └── tsconfig/      # TypeScript configurations
+└── turbo.json         # Turborepo configuration
 ```
-
-## API Endpoints
-
-### Authentication
-- `POST /auth/signup` - Register new user
-- `POST /auth/login` - Login user
-
-### Posts (Protected Routes)
-- `GET /posts` - Get all posts
-- `GET /posts/:id` - Get single post
-- `POST /posts` - Create new post (auth required)
-- `PUT /posts/:id` - Update post (auth required, owner only)
-- `DELETE /posts/:id` - Delete post (auth required, owner only)
 
 ## Getting Started
 
-### Backend Setup
 1. Install dependencies:
-   ```bash
-   cd server
-   bun install
-   ```
 
-2. Set up environment variables:
    ```bash
-   cp .env.example .env
-   ```
-   Fill in your database URL and JWT secret.
-
-3. Run development server:
-   ```bash
-   bun dev
-   ```
-   Server will start at http://localhost:8888
-
-### Frontend Setup (Coming Soon)
-1. Install dependencies:
-   ```bash
-   cd client
    pnpm install
    ```
 
-2. Run development server:
+2. Set up environment variables:
+
+   ```bash
+   cp apps/server/.env.example apps/server/.env
+   cp apps/client/.env.example apps/client/.env
+   ```
+
+3. Run development servers:
    ```bash
    pnpm dev
    ```
-   Client will start at http://localhost:3000
+   - Frontend: http://localhost:3000
+   - Backend: http://localhost:8888
 
 ## Features
 
+- ⚡️ Turborepo for optimal DX and build performance
+- 🎨 Modern UI with shadcn/ui components
+- 🎯 Type-safe API calls with Zod validation
+- 📱 Responsive design with Tailwind CSS v4
 - 🔐 JWT Authentication
-- 🔄 CRUD Operations
-- 📝 Post Management
-- 🎨 Modern UI Components
-- 🚀 Fast API Responses
-- ✨ Type Safety
-- 🔍 Data Validation
-- 📱 Responsive Design (coming soon)
+- 🚀 Fast API responses with Hono
+- 📦 Shared configurations across apps
+- 🔄 Hot Module Replacement
+- 🛠️ Development tools preconfigured
 
-## Development
+## Development Workflow
 
-### API Request Examples
+### Running Specific Apps
 
-#### Login
 ```bash
-curl -X POST http://localhost:8888/auth/login \
-  -H "Content-Type: application/json" \
-  -d '{"email": "user@example.com", "password": "password123"}'
+# Run frontend only
+pnpm dev --filter=client
+
+# Run backend only
+pnpm dev --filter=server
 ```
 
-#### Create Post (Protected)
+### Building
+
 ```bash
-curl -X POST http://localhost:8888/posts \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -d '{"title": "My Post", "content": "Post content"}'
+# Build all apps
+pnpm build
+
+# Build specific app
+pnpm build --filter=client
 ```
 
 ## Contributing
