@@ -14,15 +14,7 @@
     },
     "server#build": {
       "dependsOn": ["check-types"],
-      "env": [
-        "DATABASE_URL",
-        "JWT_SECRET",
-        "PORT"
-      ],
-      "outputs": ["dist/**"]
-    },
-    "web#build": {
-      "dependsOn": ["check-types"],
+      "env": ["DATABASE_URL", "JWT_SECRET", "PORT"],
       "outputs": ["dist/**"]
     },
     "dev": {

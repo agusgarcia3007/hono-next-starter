@@ -13,7 +13,7 @@ export function PostCard({ post }: { post: Post }) {
   return (
     <Link key={post.id} href={`/posts/${post.id}`}>
       <Card className="h-full transition-colors hover:bg-muted/50">
-        <CardHeader>
+        <CardHeader className="space-y-2 pb-4">
           <CardTitle className="line-clamp-2">{post.title}</CardTitle>
           {post.author && (
             <p className="text-sm text-muted-foreground">
@@ -21,10 +21,10 @@ export function PostCard({ post }: { post: Post }) {
             </p>
           )}
         </CardHeader>
-        <CardContent>
+        <CardContent className="pb-4">
           <p className="line-clamp-3 text-muted-foreground">{post.content}</p>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="pt-0">
           <p className="text-sm text-muted-foreground">
             Created at {formatDate(post.createdAt)}
           </p>
