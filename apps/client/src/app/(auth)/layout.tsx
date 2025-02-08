@@ -23,7 +23,7 @@ export default function AuthLayout({
           </div>
         </CardContent>
       </Card>
-      <div className="fixed bottom-4 text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary">
+      <div className="fixed bottom-4 text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary">
         By clicking continue, you agree to our{" "}
         <Link href="#">Terms of Service</Link> and{" "}
         <Link href="#">Privacy Policy</Link>
